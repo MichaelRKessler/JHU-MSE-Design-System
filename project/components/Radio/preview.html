@@ -1,0 +1,13 @@
+<!-- @dsCard group="Forms" height=60 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><style>body{margin:0;padding:20px;box-sizing:border-box;background:var(--surface-page)} .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center} .col{display:flex;flex-direction:column;gap:14px}</style></head>
+<body>
+<div id="root"></div>
+<script>
+var D = window.JHUDS, h = React.createElement;
+function Demo(){var s=React.useState('phd');return h('div',{className:'row',style:{gap:24}},['PhD',"Master's",'BS'].map(function(l){return h(D.Radio,{key:l,name:'deg',label:l,checked:s[0]===l.toLowerCase()||(s[0]==='phd'&&l==='PhD'),onChange:function(){s[1](l==='PhD'?'phd':l.toLowerCase())}})}));}
+ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>

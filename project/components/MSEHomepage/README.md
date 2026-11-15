@@ -1,0 +1,2 @@
+Recreation of engineering.jhu.edu/materials/ (home page) from the live site's structure and copy. Composes the design-system components (Button, Card, SectionHeader, StatBlock, Quote, Badge). A recreation of the department homepage, composed from the design-system components. Photography is placeholder-striped — drop in real department photos.
+Surfaces: SiteHeader, Hero, HighlightsGrid, ResearchFocus, QuoteBand, NewsRow, SiteFooter (all in screens.jsx).

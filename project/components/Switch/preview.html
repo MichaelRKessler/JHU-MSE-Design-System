@@ -1,0 +1,13 @@
+<!-- @dsCard group="Forms" height=60 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><style>body{margin:0;padding:20px;box-sizing:border-box;background:var(--surface-page)} .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center} .col{display:flex;flex-direction:column;gap:14px}</style></head>
+<body>
+<div id="root"></div>
+<script>
+var D = window.JHUDS, h = React.createElement;
+function Demo(){var s=React.useState(true),t=React.useState(false);return h('div',{className:'row',style:{gap:24}},h(D.Switch,{label:'Email alerts',checked:s[0],onChange:function(e){s[1](e.target.checked)}}),h(D.Switch,{label:'Text alerts',checked:t[0],onChange:function(e){t[1](e.target.checked)}}));}
+ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>

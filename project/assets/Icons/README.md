@@ -1,0 +1,1 @@
+Official JHU line icons (PNG, single ink `jhu-heritage-blue`, transparent background), extracted from the official presentation template. Use them in decks, fliers and reports at 32 to 64px on white or light surfaces. For web UI use Font Awesome 6 instead. Don't recolor except to white on Heritage Blue (CSS `filter: brightness(0) invert(1)`).

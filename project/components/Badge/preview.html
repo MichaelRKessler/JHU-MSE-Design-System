@@ -1,0 +1,12 @@
+<!-- @dsCard group="Content" height=56 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><style>body{margin:0;padding:20px;box-sizing:border-box;background:var(--surface-page)} .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center} .col{display:flex;flex-direction:column;gap:14px}</style></head>
+<body>
+<div id="root"></div>
+<script>
+var D = window.JHUDS, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{className:'row'},h(D.Badge,null,'Department News'),h(D.Badge,{tone:'spirit'},'Seminar'),h(D.Badge,{tone:'gold'},'Deadline Dec 1'),h(D.Badge,{tone:'green'},'Open'),h(D.Badge,{tone:'red'},'Closed'),h(D.Badge,{tone:'neutral'},'Archive')));
+</script>
+</body>
+</html>

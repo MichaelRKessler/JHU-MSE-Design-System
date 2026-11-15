@@ -1,0 +1,512 @@
+{
+  "v": 3,
+  "layout": "files",
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-10-11T21:56:29Z"
+  },
+  "title": "JHU Materials Science Design System",
+  "namespace": "JHUDS",
+  "libraries": [
+    {
+      "name": "react",
+      "version": "18.3.1",
+      "global": "React",
+      "file": "components/lib/react.production.min.js"
+    },
+    {
+      "name": "react-dom",
+      "version": "18.3.1",
+      "global": "ReactDOM",
+      "file": "components/lib/react-dom.production.min.js"
+    }
+  ],
+  "sections": {},
+  "groups": [
+    "Logos",
+    "Brand",
+    "Icons",
+    "Zoom Backgrounds",
+    "Guides"
+  ],
+  "assetGroups": {
+    "Logos": {
+      "name": "Logos",
+      "tile": "l",
+      "order": [
+        "wse-horizontal-blue.svg",
+        "wse-horizontal-white.svg",
+        "wse-horizontal-black.svg",
+        "wse-vertical-blue.svg",
+        "wse-vertical-white.svg",
+        "wse-vertical-black.svg"
+      ],
+      "files": {
+        "wse-horizontal-blue.svg": {
+          "name": "wse-horizontal-blue.svg",
+          "blob": "b992ee2711cc08c49a76871c071b1506",
+          "size": 29105,
+          "type": "image/svg+xml"
+        },
+        "wse-horizontal-white.svg": {
+          "name": "wse-horizontal-white.svg",
+          "blob": "59b5c8f0b07dad550c46f4280a2f12ab",
+          "size": 28843,
+          "type": "image/svg+xml"
+        },
+        "wse-horizontal-black.svg": {
+          "name": "wse-horizontal-black.svg",
+          "blob": "5943fdf09b1558285ca966c9c9eec4ca",
+          "size": 28982,
+          "type": "image/svg+xml"
+        },
+        "wse-vertical-blue.svg": {
+          "name": "wse-vertical-blue.svg",
+          "blob": "aca0061e492254d3fed19e434a53c0ba",
+          "size": 29254,
+          "type": "image/svg+xml"
+        },
+        "wse-vertical-white.svg": {
+          "name": "wse-vertical-white.svg",
+          "blob": "31f1068ab0eb5a893c132271bd2be1a5",
+          "size": 28364,
+          "type": "image/svg+xml"
+        },
+        "wse-vertical-black.svg": {
+          "name": "wse-vertical-black.svg",
+          "blob": "dc5c91e41ffdb201b2d70198672ceaa7",
+          "size": 29812,
+          "type": "image/svg+xml"
+        }
+      }
+    },
+    "Brand": {
+      "name": "Brand",
+      "tile": "m",
+      "order": [
+        "jhu-university-horizontal-blue.png",
+        "jhu-university-horizontal-white.png",
+        "jhu-shield-white.png",
+        "jhu-shield-small.png",
+        "build-for-whats-next.png",
+        "jhu-gradient-background.png",
+        "shield-pattern-banner-1.png",
+        "shield-pattern-banner-2.png",
+        "shield-pattern-banner-tall.png",
+        "shield-watermark-light.jpg",
+        "campus-gilman.jpg",
+        "campus-photo.jpg",
+        "glass-building.jpg"
+      ],
+      "files": {
+        "jhu-university-horizontal-blue.png": {
+          "name": "jhu-university-horizontal-blue.png",
+          "blob": "180b6f3b625fe8be28e3d9fb8b3fc32f",
+          "size": 24812,
+          "type": "image/png"
+        },
+        "jhu-university-horizontal-white.png": {
+          "name": "jhu-university-horizontal-white.png",
+          "blob": "70e52c86d464e6c6736a1f23ed50d53b",
+          "size": 27061,
+          "type": "image/png"
+        },
+        "jhu-shield-white.png": {
+          "name": "jhu-shield-white.png",
+          "blob": "c2b8fed1f30e8a3d211698d24085c22a",
+          "size": 145012,
+          "type": "image/png"
+        },
+        "jhu-shield-small.png": {
+          "name": "jhu-shield-small.png",
+          "blob": "0b6d57653203b492f2f41f59f8fed176",
+          "size": 4518,
+          "type": "image/png"
+        },
+        "build-for-whats-next.png": {
+          "name": "build-for-whats-next.png",
+          "blob": "1d87fd603ed263ab8fb600bdd57c89f1",
+          "size": 3568,
+          "type": "image/png"
+        },
+        "jhu-gradient-background.png": {
+          "name": "jhu-gradient-background.png",
+          "blob": "b7bf36c472de9b40effe77bb50e2509b",
+          "size": 43330,
+          "type": "image/png"
+        },
+        "shield-pattern-banner-1.png": {
+          "name": "shield-pattern-banner-1.png",
+          "blob": "e0579db4563a4b7b8ee54333c25c1155",
+          "size": 856889,
+          "type": "image/png"
+        },
+        "shield-pattern-banner-2.png": {
+          "name": "shield-pattern-banner-2.png",
+          "blob": "d0bc9bc5016309186118323012654ddf",
+          "size": 1399744,
+          "type": "image/png"
+        },
+        "shield-pattern-banner-tall.png": {
+          "name": "shield-pattern-banner-tall.png",
+          "blob": "5a5e6b69b8be3bc93ab742e8f8cdf35d",
+          "size": 1855611,
+          "type": "image/png"
+        },
+        "shield-watermark-light.jpg": {
+          "name": "shield-watermark-light.jpg",
+          "blob": "6a10dd8fb6817442f391f715b5d4208a",
+          "size": 18439,
+          "type": "image/jpeg"
+        },
+        "campus-gilman.jpg": {
+          "name": "campus-gilman.jpg",
+          "blob": "fe688afde0926262770c7f70976be36f",
+          "size": 922535,
+          "type": "image/jpeg"
+        },
+        "campus-photo.jpg": {
+          "name": "campus-photo.jpg",
+          "blob": "9a8315750c1ff86f9af9028cfb21252e",
+          "size": 332318,
+          "type": "image/jpeg"
+        },
+        "glass-building.jpg": {
+          "name": "glass-building.jpg",
+          "blob": "5914aa385c1055bad9ff0d67eac99609",
+          "size": 71656,
+          "type": "image/jpeg"
+        }
+      }
+    },
+    "Icons": {
+      "name": "Icons",
+      "tile": "xs",
+      "order": [
+        "award.png",
+        "book.png",
+        "briefcase.png",
+        "calendar.png",
+        "chart-down.png",
+        "chart-up.png",
+        "chat.png",
+        "clock.png",
+        "download.png",
+        "feather.png",
+        "flag.png",
+        "foam-finger.png",
+        "gears.png",
+        "globe-people.png",
+        "globe.png",
+        "grad-cap.png",
+        "handshake.png",
+        "heart.png",
+        "id-card.png",
+        "lightbulb.png",
+        "link.png",
+        "location.png",
+        "megaphone.png",
+        "money.png",
+        "pencil.png",
+        "pennant.png",
+        "phone.png",
+        "pin.png",
+        "play.png",
+        "recycle.png",
+        "star.png",
+        "storm.png",
+        "sun.png",
+        "sustainability.png",
+        "target.png",
+        "thumbs-up.png",
+        "trophy.png",
+        "window-click.png"
+      ],
+      "files": {
+        "award.png": {
+          "name": "award.png",
+          "blob": "4d4ac2b87da0da338186d8a55a63ac0e",
+          "size": 9028,
+          "type": "image/png"
+        },
+        "book.png": {
+          "name": "book.png",
+          "blob": "8fceb6d6ccdb5804665d2766fdd43744",
+          "size": 7873,
+          "type": "image/png"
+        },
+        "briefcase.png": {
+          "name": "briefcase.png",
+          "blob": "8834f9f5ffe845ee05b8749404e50a05",
+          "size": 4160,
+          "type": "image/png"
+        },
+        "calendar.png": {
+          "name": "calendar.png",
+          "blob": "45b04c6c9ec7361237ccdd17e658dde4",
+          "size": 8724,
+          "type": "image/png"
+        },
+        "chart-down.png": {
+          "name": "chart-down.png",
+          "blob": "f60561ac0ebff525127f42eb60dea87b",
+          "size": 4344,
+          "type": "image/png"
+        },
+        "chart-up.png": {
+          "name": "chart-up.png",
+          "blob": "6885efa5e4eda76ddbd285f42125f87e",
+          "size": 3882,
+          "type": "image/png"
+        },
+        "chat.png": {
+          "name": "chat.png",
+          "blob": "bfc2024c3b19c7f15e2291e47e8ed1c9",
+          "size": 3884,
+          "type": "image/png"
+        },
+        "clock.png": {
+          "name": "clock.png",
+          "blob": "e8c1cbe8e01fe1780879fb740f4c7e76",
+          "size": 6942,
+          "type": "image/png"
+        },
+        "download.png": {
+          "name": "download.png",
+          "blob": "cbf651f8fe8248e534c3c76614ace46f",
+          "size": 3551,
+          "type": "image/png"
+        },
+        "feather.png": {
+          "name": "feather.png",
+          "blob": "34d395f24b6c0e3061e18f646d090f5f",
+          "size": 8396,
+          "type": "image/png"
+        },
+        "flag.png": {
+          "name": "flag.png",
+          "blob": "c9dc00fc97ad99669fd27217829e5732",
+          "size": 5064,
+          "type": "image/png"
+        },
+        "foam-finger.png": {
+          "name": "foam-finger.png",
+          "blob": "3477c8c68af5656a4f4c6d4fe84f54ec",
+          "size": 8755,
+          "type": "image/png"
+        },
+        "gears.png": {
+          "name": "gears.png",
+          "blob": "ba1a17e8a76e44cc383d090e715542f0",
+          "size": 9727,
+          "type": "image/png"
+        },
+        "globe-people.png": {
+          "name": "globe-people.png",
+          "blob": "98da0698fca8eac11ffe8be6467be8c0",
+          "size": 13780,
+          "type": "image/png"
+        },
+        "globe.png": {
+          "name": "globe.png",
+          "blob": "f759a2e818d18069f2640747dc381088",
+          "size": 9782,
+          "type": "image/png"
+        },
+        "grad-cap.png": {
+          "name": "grad-cap.png",
+          "blob": "2d7aaeea608e7d188cb445e40ef1d366",
+          "size": 5978,
+          "type": "image/png"
+        },
+        "handshake.png": {
+          "name": "handshake.png",
+          "blob": "2dd5bace05c7aeee17ac87c387074fff",
+          "size": 7725,
+          "type": "image/png"
+        },
+        "heart.png": {
+          "name": "heart.png",
+          "blob": "8fd3abc39e782d47deba75194da442a7",
+          "size": 5595,
+          "type": "image/png"
+        },
+        "id-card.png": {
+          "name": "id-card.png",
+          "blob": "82d2e0aea70c293921aa931dc945fd73",
+          "size": 3862,
+          "type": "image/png"
+        },
+        "lightbulb.png": {
+          "name": "lightbulb.png",
+          "blob": "a0b27e16579c043d87702959cd6691bc",
+          "size": 6129,
+          "type": "image/png"
+        },
+        "link.png": {
+          "name": "link.png",
+          "blob": "21d6ee7211bfe1b17836b7eb4397246c",
+          "size": 5929,
+          "type": "image/png"
+        },
+        "location.png": {
+          "name": "location.png",
+          "blob": "27455ec23ae25efd57ca1396c6648224",
+          "size": 6279,
+          "type": "image/png"
+        },
+        "megaphone.png": {
+          "name": "megaphone.png",
+          "blob": "5002347d755bbd97b48bd99194cd3e5d",
+          "size": 4594,
+          "type": "image/png"
+        },
+        "money.png": {
+          "name": "money.png",
+          "blob": "76c0545bb380973260b8456d7f9a2944",
+          "size": 3523,
+          "type": "image/png"
+        },
+        "pencil.png": {
+          "name": "pencil.png",
+          "blob": "794c189a046a6fe687e4d8f50865a90d",
+          "size": 5115,
+          "type": "image/png"
+        },
+        "pennant.png": {
+          "name": "pennant.png",
+          "blob": "fa73a78cb17456e42365aeed0fedca15",
+          "size": 12496,
+          "type": "image/png"
+        },
+        "phone.png": {
+          "name": "phone.png",
+          "blob": "1013628e35f03084510a6ed31e73c2f0",
+          "size": 2264,
+          "type": "image/png"
+        },
+        "pin.png": {
+          "name": "pin.png",
+          "blob": "79258efc1913ae8b3f8150b3ebd2a248",
+          "size": 3965,
+          "type": "image/png"
+        },
+        "play.png": {
+          "name": "play.png",
+          "blob": "fd0a259e9557e615e1b1320a480436e6",
+          "size": 6904,
+          "type": "image/png"
+        },
+        "recycle.png": {
+          "name": "recycle.png",
+          "blob": "fa325d1acbd3460becfad6700a146761",
+          "size": 9018,
+          "type": "image/png"
+        },
+        "star.png": {
+          "name": "star.png",
+          "blob": "01de3c1bb9707ba4427ffa2b3b159dab",
+          "size": 7326,
+          "type": "image/png"
+        },
+        "storm.png": {
+          "name": "storm.png",
+          "blob": "41e9095dc5a20cf7a3ed289f4378fd43",
+          "size": 7023,
+          "type": "image/png"
+        },
+        "sun.png": {
+          "name": "sun.png",
+          "blob": "5e13f5ffc38a01e791822cd1211a8364",
+          "size": 10666,
+          "type": "image/png"
+        },
+        "sustainability.png": {
+          "name": "sustainability.png",
+          "blob": "512034d97b0ae72519ebc871fd21c4dd",
+          "size": 9464,
+          "type": "image/png"
+        },
+        "target.png": {
+          "name": "target.png",
+          "blob": "d70a13bdb429876d436c0063978811f8",
+          "size": 8024,
+          "type": "image/png"
+        },
+        "thumbs-up.png": {
+          "name": "thumbs-up.png",
+          "blob": "b3f42309926bc1868f7b3d711617eeed",
+          "size": 4980,
+          "type": "image/png"
+        },
+        "trophy.png": {
+          "name": "trophy.png",
+          "blob": "04c3c724cc2deda056519f2334dfcea1",
+          "size": 6282,
+          "type": "image/png"
+        },
+        "window-click.png": {
+          "name": "window-click.png",
+          "blob": "82af3d2d0af44b86e02e1703d63d1ce5",
+          "size": 3126,
+          "type": "image/png"
+        }
+      }
+    },
+    "Zoom Backgrounds": {
+      "name": "Zoom Backgrounds",
+      "tile": "m",
+      "order": [
+        "zoom-bg-heritage-blue.jpg",
+        "zoom-bg-medium-blue.jpg",
+        "zoom-bg-spirit-blue.jpg"
+      ],
+      "files": {
+        "zoom-bg-heritage-blue.jpg": {
+          "name": "zoom-bg-heritage-blue.jpg",
+          "blob": "658c88bcf1ea12bc018d74e99e62ae55",
+          "size": 568256,
+          "type": "image/jpeg"
+        },
+        "zoom-bg-medium-blue.jpg": {
+          "name": "zoom-bg-medium-blue.jpg",
+          "blob": "13d1e0f0cabdea30f53de7d9f9ef499e",
+          "size": 568323,
+          "type": "image/jpeg"
+        },
+        "zoom-bg-spirit-blue.jpg": {
+          "name": "zoom-bg-spirit-blue.jpg",
+          "blob": "5ca8711081e5c78860c08c62adf5de69",
+          "size": 516737,
+          "type": "image/jpeg"
+        }
+      }
+    },
+    "Guides": {
+      "name": "Guides",
+      "tile": "m",
+      "order": [
+        "jhu-report-template-guide.pdf"
+      ],
+      "files": {
+        "jhu-report-template-guide.pdf": {
+          "name": "jhu-report-template-guide.pdf",
+          "blob": "39c136ab063647550b492a0d92321c76",
+          "size": 3479531,
+          "type": "application/pdf"
+        }
+      }
+    }
+  },
+  "blobs": {},
+  "docs": {
+    "readme": "project/README.md",
+    "sections": []
+  },
+  "lastChange": {
+    "by": "Mike Kessler",
+    "at": "2026-11-15T20:28:07Z",
+    "via": "Claude (Cowork)",
+    "note": "Added the JHU Report Template Support Guide PDF as a Guides asset group"
+  }
+}

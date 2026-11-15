@@ -1,0 +1,12 @@
+<!-- @dsCard group="Feedback" height=110 subtitle="hover or focus the button" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><style>body{margin:0;padding:20px;box-sizing:border-box;background:var(--surface-page)} .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center} .col{display:flex;flex-direction:column;gap:14px}</style></head>
+<body>
+<div id="root"></div>
+<script>
+var D = window.JHUDS, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{paddingTop:40}},h(D.Tooltip,{label:'Download PDF'},h(D.IconButton,{variant:'subtle',label:'Download',icon:h('img',{src:'/_blob/cbf651f8fe8248e534c3c76614ace46f',alt:'',style:{width:20,height:20}})}))));
+</script>
+</body>
+</html>

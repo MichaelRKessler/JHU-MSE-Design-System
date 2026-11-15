@@ -1,0 +1,12 @@
+<!-- @dsCard group="Content" height=150 subtitle="light and onDark" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><style>body{margin:0;padding:20px;box-sizing:border-box;background:var(--surface-page)} .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center} .col{display:flex;flex-direction:column;gap:14px}</style></head>
+<body>
+<div id="root"></div>
+<script>
+var D = window.JHUDS, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{className:'row',style:{gap:24,alignItems:'stretch'}},h('div',{style:{flex:1}},h(D.StatBlock,{value:'#1',label:'in U.S. research spending',description:'More than any other U.S. academic institution, 40+ years running.'})),h('div',{style:{flex:1,background:'var(--jhu-heritage-blue)',padding:20}},h(D.StatBlock,{onDark:true,value:'6',label:'core research areas'}))));
+</script>
+</body>
+</html>

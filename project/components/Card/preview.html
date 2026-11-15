@@ -1,0 +1,12 @@
+<!-- @dsCard group="Content" height=300 subtitle="top, gold and image variants" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><style>body{margin:0;padding:20px;box-sizing:border-box;background:var(--surface-page)} .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center} .col{display:flex;flex-direction:column;gap:14px}</style></head>
+<body>
+<div id="root"></div>
+<script>
+var D = window.JHUDS, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{style:{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:16}},h(D.Card,{accent:'top',eyebrow:'Research in Action',title:'Biomaterials',cta:'Learn more'},'Engineering materials that interface with living systems.'),h(D.Card,{accent:'gold',eyebrow:'Graduate',title:'PhD Program',cta:'Apply'},'Doctoral research with faculty across six research areas.'),h(D.Card,{image:'/_blob/5914aa385c1055bad9ff0d67eac99609',eyebrow:'News',title:'New lab space opens',cta:'Read more'},'Renovated labs support polymer composites research.')));
+</script>
+</body>
+</html>

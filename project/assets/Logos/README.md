@@ -1,0 +1,1 @@
+Whiting School of Engineering lock-ups, SVG (RGB). Use the blue versions (ink `jhu-heritage-blue`) on white, the white versions on `jhu-heritage-blue` or photography, and the black versions (ink `jhu-double-black`) only where color printing is unavailable. Don't stretch, recolor or crowd; set the department name in Work Sans 600 beside or under the mark.

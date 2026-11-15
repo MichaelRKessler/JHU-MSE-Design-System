@@ -1,0 +1,12 @@
+<!-- @dsCard group="Forms" height=150 subtitle="primary, secondary, gold, ghost, onDark; sm, md, lg" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><style>body{margin:0;padding:20px;box-sizing:border-box;background:var(--surface-page)} .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center} .col{display:flex;flex-direction:column;gap:14px}</style></head>
+<body>
+<div id="root"></div>
+<script>
+var D = window.JHUDS, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{className:'col'},h('div',{className:'row'},h(D.Button,{arrow:true},'Learn more'),h(D.Button,{variant:'secondary'},'Request Info'),h(D.Button,{variant:'gold'},'Apply'),h(D.Button,{variant:'ghost'},'View all news'),h(D.Button,{disabled:true},'Disabled')),h('div',{className:'row',style:{background:'var(--jhu-heritage-blue)',padding:12,alignSelf:'flex-start'}},h(D.Button,{variant:'onDark'},'On dark'),h(D.Button,{variant:'gold',size:'sm'},'Give'),h(D.Button,{variant:'onDark',size:'lg'},'Large'))));
+</script>
+</body>
+</html>

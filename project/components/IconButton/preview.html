@@ -1,0 +1,12 @@
+<!-- @dsCard group="Forms" height=80 subtitle="primary and subtle, with official JHU icons" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><style>body{margin:0;padding:20px;box-sizing:border-box;background:var(--surface-page)} .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center} .col{display:flex;flex-direction:column;gap:14px}</style></head>
+<body>
+<div id="root"></div>
+<script>
+var D = window.JHUDS, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div',{className:'row'},h(D.IconButton,{label:'Download',icon:h('img',{src:'/_blob/cbf651f8fe8248e534c3c76614ace46f',alt:'',style:{width:20,height:20,filter:'brightness(0) invert(1)'}})}),h(D.IconButton,{variant:'subtle',label:'Calendar',icon:h('img',{src:'/_blob/45b04c6c9ec7361237ccdd17e658dde4',alt:'',style:{width:22,height:22}})}),h(D.IconButton,{variant:'subtle',size:48,label:'Location',icon:h('img',{src:'/_blob/27455ec23ae25efd57ca1396c6648224',alt:'',style:{width:26,height:26}})})));
+</script>
+</body>
+</html>

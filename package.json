@@ -1,0 +1,9 @@
+{
+  "name": "jhu-mse-design-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Design system for the Department of Materials Science and Engineering, Johns Hopkins Whiting School of Engineering: tokens, type, React components, page templates and official brand assets.",
+  "scripts": {
+    "start": "node serve.js"
+  }
+}

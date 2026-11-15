@@ -1,0 +1,49 @@
+<!-- @dsCard height=336 -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>JHU Materials Science Design System</title>
+<style>
+  html, body { margin:0; height:100%; }
+  body { background:var(--surface-page); font-family:var(--font-sans); overflow:hidden; }
+  .cover { position:relative; width:960px; height:336px; overflow:hidden; }
+  .band { position:absolute; top:0; left:0; width:960px; height:112px; }
+  .band svg { display:block; width:960px; height:112px; }
+  .heritage { fill:var(--jhu-heritage-blue); }
+  .spirit { fill:var(--jhu-spirit-blue); }
+  .sable { fill:var(--jhu-sable); }
+  .gold { fill:var(--jhu-gold); }
+  .cut { fill:var(--surface-page); }
+  .blk { rx:var(--radius-none); }
+  .words { position:absolute; left:var(--space-6); right:var(--space-6); bottom:var(--space-6); }
+  .name { margin:0; font-size:64px; line-height:.95; font-weight:700; letter-spacing:-.01em; color:var(--text-heading); }
+  .tag { margin:var(--space-4) 0 0; font-size:14px; line-height:20px; color:var(--text-muted); max-width:440px; }
+</style>
+</head>
+<body>
+<div class="cover">
+<div class="band" aria-hidden="true">
+<svg viewBox="0 0 960 112" width="960" height="112">
+<!--
+  blocks      jhu-heritage-blue 480x112 bled off the top-left (the brand color takes the largest field) · jhu-spirit-blue 192x80 · jhu-sable 128x112 · jhu-gold 128x48 bled off the right · about a third of 960x336
+  arrangement a strip of unequal bands, flush to the bottom edge of the band, space-4 gutters: the squared-off editorial grid the brand composes in
+  pattern     "Flat surfaces, thin rules and 4px brand bars over shadows": three 4px surface-page rules cut across the Heritage slab at a space-4 pitch, echoing --rule-brand and the gold title bar
+  scales      widths in space-4 multiples, gutters space-4 (16), rule pitch space-4, bar height 4px (--rule-brand), corners radius-none
+-->
+<rect class="heritage blk" x="0" y="0" width="480" height="112"/>
+<rect class="cut" x="0" y="40" width="480" height="4"/>
+<rect class="cut" x="0" y="56" width="480" height="4"/>
+<rect class="cut" x="0" y="72" width="480" height="4"/>
+<rect class="spirit blk" x="496" y="32" width="192" height="80"/>
+<rect class="sable blk" x="704" y="0" width="128" height="112"/>
+<rect class="gold blk" x="848" y="64" width="112" height="48"/>
+</svg>
+</div>
+<div class="words">
+<h1 class="name">JHU Materials Science<br>Design System</h1>
+<p class="tag">Heritage Blue leads. Square corners, thin rules, real labs and real people.</p>
+</div>
+</div>
+</body>
+</html>
