@@ -9,6 +9,7 @@ It contains:
 - **19 React components** on `window.JHUDS`, with a README for each.
 - **9 page templates:** six slides at 1280 × 720, an event flier and a report cover at US Letter, and a recreation of the department homepage.
 - **61 official brand assets** in five groups: Logos, Brand, Icons, Zoom Backgrounds and Guides.
+- **Source files:** the official JHU PowerPoint deck and flier templates, the Zoom backgrounds deck, the Word report template, and full JHU and WSE logo kits for screen and print (SVG, PNG, JPG, EPS).
 
 The full guidelines (tone, color rules, type, layout, imagery and iconography) are in [project/README.md](project/README.md).
 
@@ -41,7 +42,16 @@ project/
   assets/
     Logos/  Brand/  Icons/  Zoom Backgrounds/  Guides/
                            Each group has a README.md with usage rules, plus its files
+source-files/
+  README.md                What each source file is for
+  templates/               jhu-deck-template.potx, jhu-flyer-templates.pptx,
+                           jhu-zoom-backgrounds.pptx, jhu-report-template.docx
+  logos/
+    Johns Hopkins University Logos/       RGB (SVG, PNG) and CMYK (JPG, EPS)
+    Whiting School of Engineering Logos/  RGB (SVG, PNG) and CMYK (JPG, EPS)
 ```
+
+`project/` is an exact copy of the published design system, so its Guides README still says the Word template isn't stored there. It's in `source-files/templates/`.
 
 ## Using the components
 
@@ -86,8 +96,10 @@ Name the design system and the template in your prompt, and give real content:
 
 > Using the JHU MSE design system, make a one-page event flier from the EventFlier template for the Spring Materials Science Seminar on April 14 at 4 pm in Maryland Hall 110.
 
+To work in Office instead, start from the files in `source-files/templates/`. For print jobs, send the EPS logos from `source-files/logos/`.
+
 A published copy of this design system is at https://claude.ai/artifact/S9fPL8qmkQDb4wVQEzAoHN (private unless shared).
 
 ## Ownership
 
-The logos, shield, marks, photography, icons, Zoom backgrounds and report guide in `project/assets/` belong to Johns Hopkins University. Use them only as the JHU brand guidelines allow. React and ReactDOM are © Meta Platforms, Inc., under the MIT license.
+The logos, shield, marks, photography, icons, Zoom backgrounds, templates and report guide in `project/assets/` and `source-files/` belong to Johns Hopkins University. Use them only as the JHU brand guidelines allow. React and ReactDOM are © Meta Platforms, Inc., under the MIT license.
