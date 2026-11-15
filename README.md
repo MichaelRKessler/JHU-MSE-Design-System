@@ -13,21 +13,29 @@ It contains:
 
 The full guidelines (tone, color rules, type, layout, imagery and iconography) are in [project/README.md](project/README.md).
 
+## View it online
+
+- **Public site (anyone):** https://michaelrkessler.github.io/JHU-MSE-Design-System/
+- **Claude artifact (JHU accounts only):** https://claude.ai/artifact/S9fPL8qmkQDb4wVQEzAoHN?sk=hZXto5dZiPgjcMHEFTRHkQ
+
+Both show the guidelines, color swatches, type styles, token tables, live previews of every component and template, and every asset group. Select an asset to open its file here on GitHub.
+
 ## Browse it locally
 
-You need [Node.js](https://nodejs.org) 18 or later. There's nothing to install.
+Opening `index.html` by double-clicking it won't work: browsers block a page opened as a file from loading the files next to it. Serve the folder instead. You need [Node.js](https://nodejs.org) 18 or later; there's nothing to install.
 
 ```bash
 node serve.js
 ```
 
-Then open http://localhost:5178. The page shows the guidelines, color swatches, type styles, token tables, live previews of every component and template, and every asset group.
+Then open http://localhost:5178.
 
 ## Repository layout
 
 ```
-index.html                 Viewer page (served by serve.js)
-serve.js                   Local server; resolves /_blob/<id> asset links to files
+index.html                 Viewer page (the GitHub Pages site; locally, serve it with serve.js)
+serve.js                   Local server for browsing the viewer on your computer
+.nojekyll                  Tells GitHub Pages to serve the files as-is
 project/
   README.md                Brand guidelines: content, color, type, layout, logos, components
   tokens.json              All design tokens with usage notes
@@ -80,7 +88,7 @@ Alert and some IconButton examples use Font Awesome 6.5.2 glyphs. Load `https://
 
 ## Asset links
 
-The previews and `design-system.json` refer to assets by id, in the form `/_blob/<id>`. This matches the published artifact, where each asset is served at that path. `serve.js` maps each id to its file in `project/assets/<Group>/`. Outside the viewer, use the files directly:
+The previews and `design-system.json` refer to assets by id, in the form `/_blob/<id>`. This matches the Claude artifact, where each asset is served at that path. Everywhere else (the public site and `serve.js`), the viewer looks each id up in `design-system.json` and loads the file from `project/assets/<Group>/`. Outside the viewer, use the files directly:
 
 | Group | Files |
 | --- | --- |
@@ -98,7 +106,7 @@ Name the design system and the template in your prompt, and give real content:
 
 To work in Office instead, start from the files in `source-files/templates/`. For print jobs, send the EPS logos from `source-files/logos/`.
 
-A published copy of this design system is at https://claude.ai/artifact/S9fPL8qmkQDb4wVQEzAoHN (private unless shared).
+To give Claude the whole system, paste the public site or this repo's link into your prompt. JHU colleagues can also use the [Claude artifact](https://claude.ai/artifact/S9fPL8qmkQDb4wVQEzAoHN?sk=hZXto5dZiPgjcMHEFTRHkQ).
 
 ## Ownership
 

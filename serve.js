@@ -1,9 +1,10 @@
 // Local viewer for the JHU Materials Science Design System.
 // Usage: node serve.js   (then open http://localhost:5178)
 //
-// index.html is written as an artifact page body, so this server wraps it in a document.
-// Asset links use the artifact form /_blob/<id>; the server resolves each id through
-// project/design-system.json to the file in project/assets/<Group>/<name>.
+// The page loads its data with fetch(), which browsers block for pages opened as files,
+// so it needs to be served. Off claude.ai the page loads assets from project/assets/;
+// this server also answers the artifact-style /_blob/<id> links, resolved through
+// project/design-system.json, in case anything still uses them.
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
@@ -34,14 +35,7 @@ function sendFile(res, file) {
 http.createServer((req, res) => {
   const urlPath = decodeURIComponent(req.url.split('?')[0].split('#')[0]);
 
-  if (urlPath === '/' || urlPath === '/index.html') {
-    const body = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
-    res.writeHead(200, { 'content-type': 'text/html; charset=utf-8' });
-    return res.end('<!doctype html><html lang="en"><head><meta charset="utf-8">' +
-      '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">' +
-      '<style>:root{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>' +
-      '</head><body>' + body + '</body></html>');
-  }
+  if (urlPath === '/') return sendFile(res, path.join(ROOT, 'index.html'));
 
   const blob = /^\/_blob\/([0-9a-f]{32})$/.exec(urlPath);
   if (blob) {

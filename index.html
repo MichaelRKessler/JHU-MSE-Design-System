@@ -1,3 +1,11 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<style>:root{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
 <title>JHU Materials Science Design System</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&family=Roboto+Slab:wght@500;700&family=Oswald:wght@500;600&family=Source+Serif+4:ital,wght@1,400&display=swap">
@@ -127,6 +135,35 @@ footer .wrap { padding-block: 20px 32px; font-size: 12px; color: var(--muted); }
   var BASE = new URL('project/', location.href).href;
   var REPO = 'https://github.com/MichaelRKessler/JHU-MSE-Design-System';
   var REPO_FILES = REPO + '/blob/main/';
+
+  // On claude.ai the assets live in the artifact's store at /_blob/<id>. Anywhere else
+  // (GitHub Pages, node serve.js) they are the files in project/assets/<Group>/<name>.
+  var ON_ARTIFACT = /(^|\.)claudeusercontent\.com$|(^|\.)claude\.ai$/.test(location.hostname);
+  var blobPath = {};
+  function indexAssets(ds) {
+    ds.groups.forEach(function (g) {
+      var grp = ds.assetGroups[g];
+      grp.order.forEach(function (f) { blobPath[grp.files[f].blob] = BASE + 'assets/' + encodeURIComponent(g) + '/' + encodeURIComponent(f); });
+    });
+  }
+  function assetURL(id) { return (!ON_ARTIFACT && blobPath[id]) || '/_blob/' + id; }
+  function rewriteBlobs(text) {
+    return ON_ARTIFACT ? text : text.replace(/\/_blob\/([0-9a-f]{32})/g, function (m, id) { return blobPath[id] || m; });
+  }
+  // Off claude.ai, a preview's own scripts (e.g. MSEHomepage/screens.js) carry /_blob/ links too,
+  // so fetch them, rewrite the links, and inline them.
+  function inlineLocalScripts(name, html) {
+    if (ON_ARTIFACT) return Promise.resolve(html);
+    var srcs = [], re = /<script\s+src="\.\/([^"]+)"\s*><\/script>/g, m;
+    while ((m = re.exec(html))) srcs.push(m[1]);
+    return Promise.all(srcs.map(function (s) { return getText('components/' + name + '/' + s); })).then(function (texts) {
+      srcs.forEach(function (s, i) {
+        var code = rewriteBlobs(texts[i]).replace(/<\/script/gi, '<\\/script');
+        html = html.replace('<script src="./' + s + '"><\/script>', function () { return '<script>' + code + '<\/script>'; });
+      });
+      return html;
+    });
+  }
   var COMP = BASE + 'components/';
   var COMPONENTS = ['Alert','Badge','Breadcrumb','Button','Card','Checkbox','ClosingSlide','ContentSlide','Cover','DataSlide','Dialog','EventFlier','IconButton','Input','MSEHomepage','Quote','QuoteSlide','Radio','ReportCover','SectionHeader','SectionSlide','Select','StatBlock','Switch','Tabs','Tag','TitleSlide','Toast','Tooltip'];
   var HAS_README = { ClosingSlide:0, ContentSlide:0, Cover:0, DataSlide:0, EventFlier:0, QuoteSlide:0, ReportCover:0, SectionSlide:0, TitleSlide:0 };
@@ -220,7 +257,7 @@ footer .wrap { padding-block: 20px 32px; font-size: 12px; color: var(--muted); }
       '<script src="' + COMP + 'lib/react.production.min.js"><\/script>' +
       '<script src="' + COMP + 'lib/react-dom.production.min.js"><\/script>' +
       '<script src="' + COMP + 'bundle.js"><\/script>';
-    html = html.replace(/<!--\s*@dsCard[^>]*?-->\s*/, '');
+    html = rewriteBlobs(html.replace(/<!--\s*@dsCard[^>]*?-->\s*/, ''));
     if (/<head[^>]*>/i.test(html)) return html.replace(/<head[^>]*>/i, function (m) { return m + inject; });
     return '<!doctype html><html><head>' + inject + '</head><body>' + html + '</body></html>';
   }
@@ -278,7 +315,9 @@ footer .wrap { padding-block: 20px 32px; font-size: 12px; color: var(--muted); }
       return Promise.all([
         getText('components/' + name + '/preview.html'),
         HAS_README[name] === 0 ? Promise.resolve('') : getText('components/' + name + '/README.md').catch(function () { return ''; })
-      ]).then(function (r) { return { name: name, html: r[0], readme: r[1], card: parseCard(r[0]) }; });
+      ]).then(function (r) {
+        return inlineLocalScripts(name, r[0]).then(function (html) { return { name: name, html: html, readme: r[1], card: parseCard(r[0]) }; });
+      });
     })).then(function (items) {
       items.forEach(function (it) { (groups[it.card.group] = groups[it.card.group] || []).push(it); });
       var order = GROUP_ORDER.filter(function (g) { return groups[g]; }).concat(Object.keys(groups).filter(function (g) { return GROUP_ORDER.indexOf(g) < 0; }));
@@ -313,7 +352,7 @@ footer .wrap { padding-block: 20px 32px; font-size: 12px; color: var(--muted); }
         grp.order.forEach(function (fname) {
           // Show the image from the artifact's asset store; link to the file on GitHub, since
           // /_blob/ addresses only resolve inside the artifact page, not in a new tab.
-          var f = grp.files[fname], url = '/_blob/' + f.blob;
+          var f = grp.files[fname], url = assetURL(f.blob);
           var href = REPO_FILES + 'project/assets/' + encodeURIComponent(g) + '/' + encodeURIComponent(fname);
           var dark = /white|build-for-whats-next/i.test(fname); // white artwork needs a Heritage Blue tile
           var pic = el('div', { 'class': 'pic' + (dark ? ' dark' : '') }, [
@@ -332,11 +371,18 @@ footer .wrap { padding-block: 20px 32px; font-size: 12px; color: var(--muted); }
     });
   }
 
-  function fail(id, e) { var n = document.getElementById(id); n.innerHTML = ''; n.appendChild(el('p', { 'class': 'status', text: 'Could not load this section: ' + e.message })); }
+  function fail(id, e) {
+    var n = document.getElementById(id); n.innerHTML = '';
+    var msg = location.protocol === 'file:'
+      ? 'Browsers block this page from reading its files when it is opened directly. In this folder, run "node serve.js" and open http://localhost:5178, or use the published site.'
+      : 'Could not load this section: ' + e.message;
+    n.appendChild(el('p', { 'class': 'status', text: msg }));
+  }
 
   Promise.all([getJSON('tokens.json'), getJSON('design-system.json')]).then(function (r) {
     var t = r[0], ds = r[1];
     tokenCSS = buildTokenCSS(t);
+    indexAssets(ds);
     var meta = document.getElementById('meta');
     meta.appendChild(el('span', { text: 'Namespace ' + ds.namespace }));
     meta.appendChild(el('span', { text: t.color.tokens.length + ' color tokens' }));
@@ -355,3 +401,5 @@ footer .wrap { padding-block: 20px 32px; font-size: 12px; color: var(--muted); }
   getText('README.md').then(function (s) { document.getElementById('readme').innerHTML = md(s); }).catch(function (e) { fail('readme', e); });
 })();
 </script>
+</body>
+</html>
