@@ -117,7 +117,7 @@ footer .wrap { padding-block: 20px 32px; font-size: 12px; color: var(--muted); }
   <section id="type"><span class="eyebrow" style="color:var(--medium)">tokens.json</span><h2>Type</h2><div class="bar"></div><div id="typestyles"></div></section>
   <section id="scales"><span class="eyebrow" style="color:var(--medium)">tokens.json</span><h2>Scales</h2><div class="bar"></div><div id="scaletables"></div></section>
   <section id="components"><span class="eyebrow" style="color:var(--medium)">window.JHUDS</span><h2>Components and Templates</h2><div class="bar"></div><p class="lede">Live previews rendered from <code>components/bundle.js</code> with React 18.3.1. Each card opens the component's README.</p><div id="comps"></div></section>
-  <section id="assets"><span class="eyebrow" style="color:var(--medium)">Asset store</span><h2>Assets</h2><div class="bar"></div><div id="assetgroups"></div></section>
+  <section id="assets"><span class="eyebrow" style="color:var(--medium)">Asset store</span><h2>Assets</h2><div class="bar"></div><p class="lede">Select any file to open it on <a href="https://github.com/MichaelRKessler/JHU-MSE-Design-System/tree/main/project/assets" target="_blank" rel="noopener" style="color:var(--medium)">GitHub</a>, where you can view or download it. Print-quality logos (EPS, CMYK JPG) and the Office templates are in the repo's <a href="https://github.com/MichaelRKessler/JHU-MSE-Design-System/tree/main/source-files" target="_blank" rel="noopener" style="color:var(--medium)">source-files</a> folder.</p><div id="assetgroups"></div></section>
 </main>
 <footer><div class="wrap" id="foot">Source files live under <code>project/</code> in this artifact: README.md, tokens.json, design-system.json and components/.</div></footer>
 
@@ -125,6 +125,8 @@ footer .wrap { padding-block: 20px 32px; font-size: 12px; color: var(--muted); }
 <script>
 (function () {
   var BASE = new URL('project/', location.href).href;
+  var REPO = 'https://github.com/MichaelRKessler/JHU-MSE-Design-System';
+  var REPO_FILES = REPO + '/blob/main/';
   var COMP = BASE + 'components/';
   var COMPONENTS = ['Alert','Badge','Breadcrumb','Button','Card','Checkbox','ClosingSlide','ContentSlide','Cover','DataSlide','Dialog','EventFlier','IconButton','Input','MSEHomepage','Quote','QuoteSlide','Radio','ReportCover','SectionHeader','SectionSlide','Select','StatBlock','Switch','Tabs','Tag','TitleSlide','Toast','Tooltip'];
   var HAS_README = { ClosingSlide:0, ContentSlide:0, Cover:0, DataSlide:0, EventFlier:0, QuoteSlide:0, ReportCover:0, SectionSlide:0, TitleSlide:0 };
@@ -309,12 +311,15 @@ footer .wrap { padding-block: 20px 32px; font-size: 12px; color: var(--muted); }
         var grp = ds.assetGroups[g]; total += grp.order.length;
         var tiles = el('div', { 'class': 'tiles ' + (grp.tile || 'm') });
         grp.order.forEach(function (fname) {
+          // Show the image from the artifact's asset store; link to the file on GitHub, since
+          // /_blob/ addresses only resolve inside the artifact page, not in a new tab.
           var f = grp.files[fname], url = '/_blob/' + f.blob;
+          var href = REPO_FILES + 'project/assets/' + encodeURIComponent(g) + '/' + encodeURIComponent(fname);
           var dark = /white|build-for-whats-next/i.test(fname); // white artwork needs a Heritage Blue tile
           var pic = el('div', { 'class': 'pic' + (dark ? ' dark' : '') }, [
             /pdf/.test(f.type) ? el('span', { 'class': 'pdf', text: 'PDF' }) : el('img', { src: url, alt: fname, loading: 'lazy' })
           ]);
-          tiles.appendChild(el('a', { 'class': 'tile', href: url, target: '_blank', rel: 'noopener', title: 'Open ' + fname }, [pic,
+          tiles.appendChild(el('a', { 'class': 'tile', href: href, target: '_blank', rel: 'noopener', title: 'Open ' + fname + ' on GitHub' }, [pic,
             el('div', { 'class': 'cap' }, [el('b', { text: fname }), el('span', { text: f.type.replace('image/', '').replace('application/', '').replace('+xml', '').toUpperCase() + ' · ' + fmtBytes(f.size) })])]));
         });
         box.appendChild(el('div', { 'class': 'agroup' }, [
